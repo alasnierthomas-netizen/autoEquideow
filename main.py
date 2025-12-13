@@ -26,6 +26,18 @@ def attente_implicite(texte: str):
             if kill > 1000:
                 sys.exit()
 
+def tentative_clique(texte: str):
+    kill = 0
+    boucle = True
+    while boucle:
+        try:
+            return driver.find_element(By.CSS_SELECTOR, texte).click()
+        except:
+            sleep(0.01)
+            kill += 1
+            if kill > 100:
+                boucle = False
+
 
 def clique_implicite(texte: str):
     kill = 0
@@ -38,6 +50,7 @@ def clique_implicite(texte: str):
             kill += 1
             if kill > 1000:
                 sys.exit()
+
 
 def texte_implicite(texte: str):
     kill = 0
@@ -75,6 +88,28 @@ driver.get("https://ouranos.equideow.com/elevage/chevaux/cheval?id=30804687")
 
 #on démare la boucle principale (une itération = un cheval)
 for _ in range(nombre_cheveaux):
+    #inscrit a une penssion
+    try:
+        if (attente_implicite("td[class='first top']").find_element(By.CSS_SELECTOR, "a[direction='rtl']").get_attribute("class") == "action action-style-4 competition-trot"):
+            classiqueHorse = True
+        else:
+            classiqueHorse = False
+        driver.find_element(By.CSS_SELECTOR, "span[style='background-image:url(//ouranos.equideow.com/media/equideo/image//components/action/2/centre.png);']").click()
+        tentative_clique("button[class=ot-pc-refuse-all-handler]")
+        driver.find_element(By.CSS_SELECTOR, "span[class='grid-table align-middle font-small']").find_element(By.XPATH, ".//a[text()='60 jours']").click()
+        sleep(0.5)
+        clique_implicite("img[alt='ce centre propose des abreuvoirs dans tous ses box']")
+        clique_implicite("img[alt='ce centre propose des douches dans tous ses box']")
+        if (classiqueHorse):
+            clique_implicite("img[alt='specialisationclassique']")
+        else:
+            clique_implicite("img[alt='specialisationwestern']")
+        driver.find_element(By.XPATH, "//span[text()='Rechercher']").click()
+        driver.find_element(By.CSS_SELECTOR, "tr[class=' odd highlight']").find_element(By.XPATH, ".//strong[text()='1 200']").click()
+    except:
+        print("le cheval n'as pas besoin de Centre équestre")
+
+    
     clique_implicite( "div[id='mission']")
     race_cheval = texte_implicite( "span.color-style-0")
     chemin_de_comp = choix_du_concours(race_cheval)
