@@ -10,7 +10,8 @@ Dans votre terminal, exécutez :
 pip install -r requirements.txt
 
 
-Renseignez ensuite le fichier privateInfo avec votre identifiant et votre mot de passe.
+Renseignez ensuite le fichier privateInfo avec votre identifiant et votre mot de passe ainsi que le lien vers l’élevage que vous voulez automatiser et le lien d’un des chevaux de cet élevage.
+
 
 🛠️ Création de l’exécutable
 
