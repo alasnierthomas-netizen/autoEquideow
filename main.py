@@ -39,17 +39,18 @@ def tentative_clique(texte: str):
                 boucle = False
 
 
-def clique_implicite(texte: str):
+def clique_implicite(texte: str, selector = By.CSS_SELECTOR):
     kill = 0
     while True:
         try:
-            driver.find_element(By.CSS_SELECTOR, texte).click()
+            driver.find_element(selector, texte).click()
             break
         except:
             sleep(0.01)
             kill += 1
             if kill > 1000:
                 sys.exit()
+
 
 
 def texte_implicite(texte: str):
@@ -162,9 +163,14 @@ for _ in range(nombre_cheveaux):
     clique_implicite( "a[id='nav-next']")
     sleep(0.2)
 
-#début 
-driver.get("https://ouranos.equideow.com/elevage/competition/?type=coupe")
-attente_implicite( "div.details-row.today.on")
-
+driver.get("https://ouranos.equideow.com/daily/")
+try:
+    clique_implicite("//span[@class='btn__label__text' and text()='Valider']", By.XPATH)
+    clique_implicite("//span[@class='btn__label__text' and text()='Ok']", By.XPATH)
+    sleep(0.2)
+    clique_implicite("//span[@class='btn__label__text' and text()='Valider']", By.XPATH)
+    print("");
+except:
+    sys.exit();
 
 
