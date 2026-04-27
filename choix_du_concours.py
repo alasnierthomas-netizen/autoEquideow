@@ -33,6 +33,8 @@ def choix_du_concours(race_cheval):
         return "middle.top" #Course galop
     elif race_cheval == "Konik Polski":
         return "first.top.bottom" #Cross
+    elif race_cheval == "Divine":
+        return "first.top.bottom" #Cross
     assert False, "la race de cheval n'ai pas reconnus par le programme"
 
 
