@@ -166,6 +166,7 @@ for _ in range(nombre_cheveaux):
 driver.get("https://ouranos.equideow.com/daily/")
 try:
     clique_implicite("//span[@class='btn__label__text' and text()='Valider']", By.XPATH)
+    sleep(0.2)
     clique_implicite("//span[@class='btn__label__text' and text()='Ok']", By.XPATH)
     sleep(0.2)
     clique_implicite("//span[@class='btn__label__text' and text()='Valider']", By.XPATH)
