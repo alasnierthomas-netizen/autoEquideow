@@ -163,7 +163,7 @@ for _ in range(nombre_cheveaux):
     clique_implicite( "a[id='nav-next']")
     sleep(0.2)
 
-driver.get("https://ouranos.equideow.com/daily/")
+driver.get("https://ouranos.equideow.com/todayobjectives/")
 try:
     clique_implicite("//span[@class='btn__label__text' and text()='Valider']", By.XPATH)
     sleep(0.2)
