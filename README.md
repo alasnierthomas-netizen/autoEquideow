@@ -1,7 +1,19 @@
+⚠️ Avertissement À l'attention des personnes souhaitant évaluer mes compétences en programmation :
+
+Ce logiciel a été réalisé en **2021**, durant l'année de Terminale de mon bac général. Il n'a subi **aucune évolution significative depuis**, à l'exception des modifications nécessaires à sa publication en tant que dépôt public (suppression d'informations privées et ajout de ce README).
+
+Il n'est donc **plus représentatif de mon niveau actuel** en programmation.
+
+Sa mise en public a uniquement pour objectif de **« servir la communauté »** et de permettre à d'autres personnes de consulter ou d'utiliser le projet.
+
+Merci de vous référer à mes travaux **plus récents** pour évaluer mon niveau actuel.
+
+
 ⚠️ Avertissement
 
 Ce script viole très probablement les conditions d’utilisation d’equideow.com.
 Je décline toute responsabilité en cas de bannissement de votre compte.
+
 
 🚀 Installation
 
